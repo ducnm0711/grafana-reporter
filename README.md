@@ -1,10 +1,17 @@
-# grafana-pdf-exporter
-Export a Grafana dashboard as PDF
+# grafana-reporter
 
-Emails (exported dashboards) can be sent using SendGrid, in order to do this, one has to set FROM_NAME, FROM_EMAIL and SENDGRID_API_KEY environment variables.  
+## Build base puppeteer image
+```
+docker build -f Dockerfile_puppeteer . -t verces/puppeteer:latest
+```
 
-sh sendgridSendEmail.sh -t 'to1@gmail.com;to2@gmail.com'  -s 'FINAL SCRIPT' -o '\<p\>Email body goes here\<\/p\>' -a '/tmp/test.sh;/tmp/test2.sh'
+## Build grafana-reporter
+ENV will be provided in k8s
+```
+node grafana_pdf.js $URL $APITOKEN $OUTPUT
+```
 
-Thanks to @salv for the original nodejs implementation
+## Send SMTP2GO / Object Storage - TO DO
+
 
 

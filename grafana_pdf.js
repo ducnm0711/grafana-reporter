@@ -3,12 +3,14 @@
 const puppeteer = require('puppeteer');
 
 // URL to load should be passed as first parameter
-//const url = process.argv[2];
+// const url = process.argv[2];
 const url = process.env.URL;
 // Username and password (with colon separator) should be second parameter
-// const auth_string = process.env.CREDS;
+const auth_string = process.env.APITOKEN;
+// const auth_string = process.argv[3];
 // Output file name should be third parameter
 const outfile = process.env.OUTPUT;
+// const outfile = process.argv[4];
 
 // TODO: Output an error message if number of arguments is not right or arguments are invalid
 
@@ -26,7 +28,7 @@ const token = 'Bearer ' + auth_string;
 
 
 (async() => {
-  const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']})
+  const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
   const page = await browser.newPage();
 
   // Set basic auth headers
@@ -65,7 +67,7 @@ const token = 'Bearer ' + auth_string;
   }) + 20;
 
   //Francois: wait for page to be navigable (2min should be more than enough for longrange queries)
-  await page.waitFor(120000);
+  // await page.waitFor(120000);
 
   await page.pdf({
     path: outfile,

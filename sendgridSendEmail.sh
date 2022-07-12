@@ -131,7 +131,7 @@ echo $sendGridJson > $tfile
 
 # Send the http request to SendGrid
 curl --request POST \
-  --url https://api.sendgrid.com/v3/mail/send \
+  --url https://api.smtp2go.com/v3/email/send \
   --header 'Authorization: Bearer '$SENDGRID_API_KEY \
   --header 'Content-Type: application/json' \
   --data @$tfile
