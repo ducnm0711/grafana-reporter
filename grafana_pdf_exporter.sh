@@ -6,11 +6,12 @@
 # set -x
 
 URL="$(echo ${1})"
-CREDS=${GRAFANA_USER}:${GRAFANA_PASSWORD}
+# CREDS=${GRAFANA_USER}:${GRAFANA_PASSWORD}
+APITOKEN=${APITOKEN}
 OUTPUT="$(echo ${2})"
 
 # Node.js require us to pass environment variables this way
-URL=$URL CREDS=$CREDS OUTPUT=$OUTPUT  node grafana_pdf.js
+node grafana_pdf.js URL=$URL APITOKEN=$APITOKEN OUTPUT=$OUTPUT
 
 if [ ! -f $2 ]; then
     echo "Grafana dashboard $1 not exported to $2, exiting"

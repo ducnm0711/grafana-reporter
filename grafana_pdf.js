@@ -6,7 +6,7 @@ const puppeteer = require('puppeteer');
 //const url = process.argv[2];
 const url = process.env.URL;
 // Username and password (with colon separator) should be second parameter
-const auth_string = process.env.CREDS;
+// const auth_string = process.env.CREDS;
 // Output file name should be third parameter
 const outfile = process.env.OUTPUT;
 
