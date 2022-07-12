@@ -21,14 +21,17 @@ const width_px = 1200;
 // scale = 0.5.
 
 // Generate authorization header for basic auth
-const auth_header = 'Basic ' + new Buffer.from(auth_string).toString('base64');
+// const auth_header = 'Basic ' + new Buffer.from(auth_string).toString('base64');
+const token = 'Bearer ' + auth_string;
+
 
 (async() => {
   const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']})
   const page = await browser.newPage();
 
   // Set basic auth headers
-  await page.setExtraHTTPHeaders({'Authorization': auth_header});
+  // await page.setExtraHTTPHeaders({'Authorization': auth_header});
+  await page.setExtraHTTPHeaders({'Authorization': token});
 
   // Increase timeout from the default of 30 seconds to 120 seconds, to allow for slow-loading panels
   await page.setDefaultNavigationTimeout(240000);
@@ -71,6 +74,7 @@ const auth_header = 'Basic ' + new Buffer.from(auth_string).toString('base64');
 //    format: 'Letter', <-- see note above for generating "paper-sized" outputs
     scale: 1,
     displayHeaderFooter: false,
+    printBackground: true,
     margin: {
       top: 0,
       right: 0,
