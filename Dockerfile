@@ -8,7 +8,8 @@ RUN apt-get update
 RUN apt-get install -y awscli curl
 RUN rm -rf /var/lib/apt/lists/*
 
-COPY grafana_pdf.js ./
+COPY grafana_pdf.js export.sh ./
 
+RUN chmod +x ./export.sh
 # just run the container doing nothing
 ENTRYPOINT ["sh", "-c", "sleep infinity"]
