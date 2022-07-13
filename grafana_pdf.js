@@ -4,12 +4,12 @@ const puppeteer = require('puppeteer');
 
 // URL to load should be passed as first parameter
 // const url = process.argv[2];
-const url = process.env.URL;
+const url = process.env.GRAFANA_URL;
 // Username and password (with colon separator) should be second parameter
-const auth_string = process.env.APITOKEN;
+const auth_string = process.env.GRAFANA_API_KEY;
 // const auth_string = process.argv[3];
 // Output file name should be third parameter
-const outfile = process.env.OUTPUT;
+const outfile = process.env.GRAFANA_OUTPUT;
 // const outfile = process.argv[4];
 
 // TODO: Output an error message if number of arguments is not right or arguments are invalid
