@@ -67,13 +67,12 @@ const token = 'Bearer ' + auth_string;
   }) + 20;
 
   //Francois: wait for page to be navigable (2min should be more than enough for longrange queries)
-  // await page.waitFor(120000);
+  await page.waitFor(120000);
 
   await page.pdf({
     path: outfile,
     width: width_px + 'px',
     height: height_px + 'px',
-//    format: 'Letter', <-- see note above for generating "paper-sized" outputs
     scale: 1,
     displayHeaderFooter: false,
     printBackground: true,

@@ -2,16 +2,14 @@
 
 ## Build base puppeteer image
 ```
-docker build -f Dockerfile_puppeteer . -t verces/puppeteer:latest
+docker build -f Dockerfile . 
 ```
 
-## Build grafana-reporter
-ENV will be provided in k8s
-```
-node grafana_pdf.js $URL $APITOKEN $OUTPUT
-```
+## Mount files to container (Configmap)
 
-## Send SMTP2GO / Object Storage - TO DO
+## Run grafana-reporter
 
+## Send SMTP2GO / Object Storage - See Helm
 
+## TO DO docker-compose.yaml
 
